@@ -146,33 +146,20 @@
   </main>
 
   <!-- Tabs JS -->
-<script>
-  const sections = document.querySelectorAll("main section");
-  const tabs = document.querySelectorAll(".tab-link");
-
-  function showSection(id){
-    sections.forEach(s => s.style.display = (s.id === id ? "block" : "none"));
-    tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
-  }
-
-  function activateFromHash(){
-    const id = (location.hash && location.hash.slice(1)) || "home";
-    showSection(id);
-  }
-
-  // click on tabs
-  tabs.forEach(t => t.addEventListener("click", e => {
-    e.preventDefault();
-    const id = t.dataset.target;
-    if (location.hash !== "#" + id) history.replaceState(null, "", "#" + id);
-    showSection(id);
-    window.scrollTo({ top: document.querySelector(".hero").offsetHeight });
-  }));
-
-  // handle direct loads, redirects, and back/forward
-  document.addEventListener("DOMContentLoaded", activateFromHash);
-  window.addEventListener("hashchange", activateFromHash);
-</script>
+  <script>
+    const sections = document.querySelectorAll("main section");
+    const tabs = document.querySelectorAll(".tab-link");
+    function showSection(id){
+      sections.forEach(s => s.style.display = (s.id === id ? "block" : "none"));
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
+      history.replaceState(null,"","#"+id);
+      window.scrollTo({ top: document.querySelector(".hero").offsetHeight, behavior: "instant" });
+    }
+    tabs.forEach(t => t.addEventListener("click", e => {
+      e.preventDefault(); showSection(t.dataset.target);
+    }));
+    showSection((location.hash||"#home").slice(1));
+  </script>
 
 </body>
 </html>
