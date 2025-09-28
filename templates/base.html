@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ramya Sree Kanijam</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+  <!-- ===== Centered Header (no sidebar) ===== -->
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-name">Ramya Sree Kanijam</h1>
+      <div class="hero-role">Software Engineer</div>
+      <div class="hero-links">
+        <a href="mailto:rkanijam@islander.tamucc.edu">Email</a>
+        <span>·</span>
+        <a href="https://www.linkedin.com/in/ramyasreek-vs/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+
+      <!-- Top centered tabs -->
+      <nav class="top-tabs">
+        <a href="#home"           class="tab-link active" data-target="home">Home</a>
+        <a href="#projects"       class="tab-link"        data-target="projects">Projects</a>
+        <a href="#certifications" class="tab-link"        data-target="certifications">Certifications</a>
+        <a href="#experience"     class="tab-link"        data-target="experience">Experience</a>
+        <a href="#more"           class="tab-link"        data-target="more">More</a>
+        <a href="#contact"        class="tab-link"        data-target="contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== Main content ===== -->
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- ===== Inline JS: tabs ===== -->
+  <script>
+    const sections = document.querySelectorAll("main section");
+    const tabs     = document.querySelectorAll(".tab-link");
+
+    function showSection(id) {
+      sections.forEach(s => s.style.display = (s.id === id ? "block" : "none"));
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
+      history.replaceState(null, "", "#" + id);
+      // Scroll to top of content on tab switch
+      window.scrollTo({ top: document.querySelector(".hero").offsetHeight, behavior: "instant" });
+    }
+
+    tabs.forEach(t => {
+      t.addEventListener("click", (e) => {
+        e.preventDefault();
+        showSection(t.dataset.target);
+      });
+    });
+
+    // Initialize: show hash or home
+    const initial = (location.hash || "#home").slice(1);
+    showSection(initial);
+  </script>
+</body>
+</html>

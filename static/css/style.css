@@ -1,0 +1,144 @@
+/* ========== Base & Layout ========== */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #222;
+  background: #fff;
+}
+
+/* Container for page content */
+.container {
+  max-width: 1050px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ========== Centered Hero Header (white with black line) ========== */
+.hero {
+  background: #fff;              /* white header */
+  color: #222;
+  padding: 24px 16px 10px;
+  border-bottom: 2px solid #000; /* thin black line */
+}
+.hero-inner {
+  max-width: 1050px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-name {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #003366;                /* nice blue for name */
+}
+.hero-role {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #444;
+}
+.hero-links {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.hero-links a {
+  color: #0a58ca;
+  text-decoration: none;
+}
+.hero-links a:hover { color: #003366; }
+
+/* Top tabs centered under the hero */
+.top-tabs {
+  display: inline-flex;
+  gap: 10px;
+  margin-top: 16px;
+  padding-bottom: 6px;           /* no extra border; header already has black line */
+}
+.tab-link {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #003366;                /* blue text on white */
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+}
+.tab-link:hover { background: #f2f4f8; }
+.tab-link.active {
+  background: #003366;
+  color: #fff;
+  border: 1px solid #003366;
+}
+
+/* ========== Content sections ========== */
+section { display: none; padding: 26px 0; border-bottom: 1px solid #eee; }
+h1, h2 { color: #003366; margin: 0 0 10px; }
+h3 { color: #005c99; margin: 16px 0 6px; }
+.list { padding-left: 20px; }
+a { color: #0a58ca; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Buttons */
+.btn-row { margin-top: 10px; }
+.btn {
+  display: inline-block;
+  margin: 6px 10px 0 0;
+  padding: 10px 14px;
+  border: 1px solid #003366;
+  border-radius: 8px;
+  color: #003366;
+  font-weight: 600;
+  text-decoration: none;
+}
+.btn:hover { background: #003366; color: #fff; }
+
+/* ========== Timeline (unchanged logic, re-skinned) ========== */
+.timeline-container {
+  position: relative;
+  width: 92%;
+  margin: 30px auto 0;
+  height: 1300px;
+}
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 900px; /* 2025 -> 2017 */
+  background-color: #ccc;
+}
+.timeline-year {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+  margin-top: 50px;
+}
+.timeline-box {
+  position: absolute;
+  width: 300px;
+  padding: 20px 20px 40px;
+  color: #fff;
+  border-radius: 8px;
+  min-height: 120px;
+  box-shadow: 0 3px 10px rgba(0,0,0,.12);
+}
+.timeline-box.left  { left: calc(50% - 380px); }
+.timeline-box.right { left: calc(50% +  80px); }
+.timeline-box h3 { margin-top: 0; }
+
+/* ========== Responsive ========== */
+@media (max-width: 900px) {
+  .container { padding: 18px 14px 40px; }
+  .top-tabs { flex-wrap: wrap; justify-content: center; }
+  .timeline-container { width: 100%; height: auto; }
+  .timeline-line { display: none; }
+  .timeline-year { position: static; transform: none; margin: 6px 0; }
+  .timeline-box, .timeline-box.left, .timeline-box.right {
+    position: static; width: 100%; margin: 10px 0;
+  }
+}
