@@ -93,13 +93,14 @@ a:hover { text-decoration: underline; }
 }
 .btn:hover { background: #003366; color: #fff; }
 
-/* ========== Timeline (unchanged logic, re-skinned) ========== */
+/* ========== Timeline ========== */
 .timeline-container {
   position: relative;
   width: 92%;
   margin: 30px auto 0;
   height: 1300px;
 }
+
 .timeline-line {
   position: absolute;
   left: 50%;
@@ -109,27 +110,65 @@ a:hover { text-decoration: underline; }
   height: 900px; /* 2025 -> 2017 */
   background-color: #ccc;
 }
+
 .timeline-year {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  left: calc(50% - 14px);  /* nudge left so it doesn’t overlap the line */
+  transform: translateX(-100%);
   font-size: 14px;
   color: #888;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 0;
 }
+
 .timeline-box {
   position: absolute;
-  width: 300px;
-  padding: 20px 20px 40px;
+  width: 360px;                 /* a bit wider so text wraps better */
+  padding: 16px 16px 18px;
   color: #fff;
-  border-radius: 8px;
+  border-radius: 12px;
   min-height: 120px;
   box-shadow: 0 3px 10px rgba(0,0,0,.12);
+  overflow-wrap: anywhere;      /* wrap long words */
+  word-break: break-word;       /* extra safety */
 }
-.timeline-box.left  { left: calc(50% - 380px); }
-.timeline-box.right { left: calc(50% +  80px); }
-.timeline-box h3 { margin-top: 0; }
+.timeline-box h3 { margin: 0 0 6px; line-height: 1.25; }
+.timeline-box p  { margin: 0;   line-height: 1.35; }
+
+.timeline-box.left  { left: calc(50% - 420px); }
+.timeline-box.right { left: calc(50% +  60px); }
+
+/* ========== Certifications (cards) ========== */
+.cert-list{
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.cert{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fff;
+}
+.cert-meta{ flex: 1; min-width: 0; }
+.cert-title{ font-weight: 700; color: #1f2328; }
+.cert-org{ font-size: 13px; color: #5a6675; }
+
+.cert-icon{
+  width: 40px; height: 40px; border-radius: 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #fff; font-weight: 800; letter-spacing: .5px;
+}
+.cert-icon.msft   { background:#107C10; }
+.cert-icon.oracle { background:#F80000; }
+.cert-icon.umich  { background:#00274C; }
+.cert-icon.hr     { background:#1A1A1A; }
 
 /* ========== Responsive ========== */
 @media (max-width: 900px) {
@@ -141,4 +180,5 @@ a:hover { text-decoration: underline; }
   .timeline-box, .timeline-box.left, .timeline-box.right {
     position: static; width: 100%; margin: 10px 0;
   }
+  .timeline-box { min-height: 0; } /* let content define height on mobile */
 }
