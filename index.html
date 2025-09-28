@@ -95,7 +95,8 @@
       <h2>Career Journey</h2>
       <div class="timeline-container">
         <div class="timeline-line"></div>
-        <!-- 2025..2017 ticks -->
+
+        <!-- Year ticks -->
         <div class="timeline-year" style="top:0px;">2025</div>
         <div class="timeline-year" style="top:100px;">2024</div>
         <div class="timeline-year" style="top:200px;">2023</div>
@@ -106,17 +107,25 @@
         <div class="timeline-year" style="top:700px;">2018</div>
         <div class="timeline-year" style="top:800px;">2017</div>
 
-        <div class="timeline-box right" style="top:0px;height:100px;background:#1976d2;">
-          <h3>Master's Student & Research Assistant</h3><p>Texas A&M University–Corpus Christi</p>
+        <!-- Boxes (heights bumped so text fits) -->
+        <div class="timeline-box right" style="top:0px;height:140px;background:#1976d2;">
+          <h3>Master's Student & Research Assistant</h3>
+          <p>Texas A&amp;M University–Corpus Christi</p>
         </div>
-        <div class="timeline-box right" style="top:200px;height:100px;background:#9c27b0;">
-          <h3>Post Graduate Program – DevOps</h3><p>Purdue University</p>
+
+        <div class="timeline-box right" style="top:200px;height:120px;background:#9c27b0;">
+          <h3>Post Graduate Program – DevOps</h3>
+          <p>Purdue University</p>
         </div>
+
         <div class="timeline-box left" style="top:100px;height:300px;background:#009688;">
-          <h3>Software Engineer</h3><p>Infosys</p>
+          <h3>Software Engineer</h3>
+          <p>Infosys</p>
         </div>
+
         <div class="timeline-box left" style="top:425px;height:400px;background:#e91e63;">
-          <h3>B.Tech – Electronics</h3><p>JNTU Kakinada</p>
+          <h3>B.Tech – Electronics</h3>
+          <p>JNTU Kakinada</p>
         </div>
       </div>
     </section>
@@ -140,12 +149,15 @@
   <script>
     const sections = document.querySelectorAll("main section");
     const tabs = document.querySelectorAll(".tab-link");
-    function showSection(id){ sections.forEach(s=>s.style.display=(s.id===id?"block":"none"));
-      tabs.forEach(t=>t.classList.toggle("active", t.dataset.target===id));
+    function showSection(id){
+      sections.forEach(s => s.style.display = (s.id === id ? "block" : "none"));
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.target === id));
       history.replaceState(null,"","#"+id);
       window.scrollTo({ top: document.querySelector(".hero").offsetHeight, behavior: "instant" });
     }
-    tabs.forEach(t=>t.addEventListener("click", e=>{ e.preventDefault(); showSection(t.dataset.target); }));
+    tabs.forEach(t => t.addEventListener("click", e => {
+      e.preventDefault(); showSection(t.dataset.target);
+    }));
     showSection((location.hash||"#home").slice(1));
   </script>
 </body>
