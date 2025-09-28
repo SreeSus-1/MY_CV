@@ -41,10 +41,7 @@ body {
   margin-top: 10px;
   font-size: 14px;
 }
-.hero-links a {
-  color: #0a58ca;
-  text-decoration: none;
-}
+.hero-links a { color: #0a58ca; text-decoration: none; }
 .hero-links a:hover { color: #003366; }
 
 /* Top tabs centered under the hero */
@@ -52,14 +49,14 @@ body {
   display: inline-flex;
   gap: 10px;
   margin-top: 16px;
-  padding-bottom: 6px;           /* no extra border; header already has black line */
+  padding-bottom: 6px; /* header already has the black line */
 }
 .tab-link {
   display: inline-block;
   padding: 8px 12px;
   border-radius: 8px;
   font-weight: 600;
-  color: #003366;                /* blue text on white */
+  color: #003366;
   text-decoration: none;
   background: transparent;
   border: 1px solid transparent;
@@ -100,7 +97,6 @@ a:hover { text-decoration: underline; }
   margin: 30px auto 0;
   height: 1300px;
 }
-
 .timeline-line {
   position: absolute;
   left: 50%;
@@ -110,65 +106,34 @@ a:hover { text-decoration: underline; }
   height: 900px; /* 2025 -> 2017 */
   background-color: #ccc;
 }
-
 .timeline-year {
   position: absolute;
-  left: calc(50% - 14px);  /* nudge left so it doesn’t overlap the line */
+  left: calc(50% - 14px); /* nudge so it doesn’t overlap the line */
   transform: translateX(-100%);
   font-size: 14px;
   color: #888;
   font-weight: bold;
   margin-top: 0;
 }
-
 .timeline-box {
   position: absolute;
-  width: 360px;                 /* a bit wider so text wraps better */
+  width: 360px;                 /* wider so text wraps better */
   padding: 16px 16px 18px;
   color: #fff;
   border-radius: 12px;
   min-height: 120px;
   box-shadow: 0 3px 10px rgba(0,0,0,.12);
-  overflow-wrap: anywhere;      /* wrap long words */
-  word-break: break-word;       /* extra safety */
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .timeline-box h3 { margin: 0 0 6px; line-height: 1.25; }
-.timeline-box p  { margin: 0;   line-height: 1.35; }
-
+.timeline-box p  { margin: 0;     line-height: 1.35; }
 .timeline-box.left  { left: calc(50% - 420px); }
 .timeline-box.right { left: calc(50% +  60px); }
 
-/* ========== Certifications (cards) ========== */
-.cert-list{
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-.cert{
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 14px;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  background: #fff;
-}
-.cert-meta{ flex: 1; min-width: 0; }
-.cert-title{ font-weight: 700; color: #1f2328; }
-.cert-org{ font-size: 13px; color: #5a6675; }
-
-.cert-icon{
-  width: 40px; height: 40px; border-radius: 10px;
-  display: inline-flex; align-items: center; justify-content: center;
-  color: #fff; font-weight: 800; letter-spacing: .5px;
-}
-.cert-icon.msft   { background:#107C10; }
-.cert-icon.oracle { background:#F80000; }
-.cert-icon.umich  { background:#00274C; }
-.cert-icon.hr     { background:#1A1A1A; }
+/* ========== Certifications (simple bullets) ========== */
+.cert-bullets { margin-left: 18px; }
+.cert-bullets li { margin: 6px 0; }
 
 /* ========== Responsive ========== */
 @media (max-width: 900px) {
