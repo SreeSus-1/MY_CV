@@ -147,3 +147,10 @@ a:hover { text-decoration: underline; }
   }
   .timeline-box { min-height: 0; } /* let content define height on mobile */
 }
+
+
+
+/* LinkedIn badge spacing/centering (optional) */
+.LI-profile-badge { margin-top: 12px; }
+.hero .LI-profile-badge { display: inline-block; }
+
